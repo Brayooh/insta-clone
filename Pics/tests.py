@@ -24,3 +24,19 @@ class PostTest(TestCase):
         self.assertTrue(isinstance(self.post,Post))
 
 
+class CommentTest(TestCase):
+    def setUp(self):
+        self.comment = Comment(comment='comment', created_date='created_date')
+        self.post = Post(image='image', caption='caption', created_date='created_date')
+        self.post.save()
+        self.user = User(username='user', email='email')
+        self.user.save()
+
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.comment,Comment))
+
+    def test_save(self):
+        self.comment.save_comment()
+        comments = Comment.objects.all()
+        self.assertTrue(len(comments)>0)

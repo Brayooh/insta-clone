@@ -16,5 +16,11 @@ class ProfileTest(TestCase):
         profile = Profile.objects.all()
         self.assertTrue(len(profile)>0)
 
+class PostTest(TestCase):
+    def setUp(self):
+        self.post = Post(image='image',caption='caption',created_date='created_date')
 
-        self.assertTrue(len(comments)>0)
+    def test_instance(self):
+        self.assertTrue(isinstance(self.post,Post))
+
+

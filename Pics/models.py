@@ -49,3 +49,16 @@ class Post(models.Model):
 
     def delete_post(self):
         self.delete()
+
+    @classmethod
+    def search_by_author(cls,search_term):
+        image = cls.objects.filter(author__username__icontains=search_term)
+        return image
+
+    @classmethod
+    def get_post(cls,id):
+        try:
+            post = Post.objects.get(pk=id)
+        except ObjectDoesNotExist:
+            raise Http404()
+        return post

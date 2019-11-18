@@ -18,5 +18,6 @@ urlpatterns = [
     path('likes/<post_id>', views.likes, name="likes"),
     re_path(r'^follow/(?P<operation>.+)/(?P<pk>\d+)/$', views.follow, name="follow" )
 ]
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

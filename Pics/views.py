@@ -36,8 +36,7 @@ def registration(request):
 def post(request):
     posts = Post.objects.all()
     users = User.objects.exclude(id=request.user.id)
-    following = Following.objects.get(current_user=request.user)
-    followers = following.users.all()
+   
     comments = Comment.objects.all()
     comment_form = CommentForm()
     context = {
@@ -45,7 +44,7 @@ def post(request):
         "comment_form":comment_form,
         "comments":comments,
         "users":users,
-        "followers":followers,
+        
     }
     return render(request,'posts.html', context)
 

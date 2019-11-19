@@ -50,21 +50,28 @@
                {% endif %}
               </li> -->
 
-        <div class="search_bar ml-center">
-          <form action="{% url 'search' %}" class="text-black" method="get">
-            {% csrf_token %}
-            <input type="text" name="post" class="form-control text-black" placeholder="search">
-            
-          </form>
+        <div class="search_bar>">
+          <div style="text-align: center; margin-top: -0.10%; margin-left: 15%">
+            <form action="{% url 'search' %}" class="text-black" method="get">
+              {% csrf_token %}
+              <input type="text" name="post" class="form-control text-black" placeholder="search">
+
+            </form>
+          </div>
         </div>
         {% endif %}
+        <ul class="nav nav-tabs navbar-right">
+          <li><a href="/timeline/"><img class="img-responsive" src="../static/images/explore.png"
+                style="width: 25px; height: 25px; margin: 5px; margin-bottom: 8px; margin-top: 2px;"></a></li>
+          <li><a href="/profile/"><img class="img-responsive" src="../static/images/person.png"
+                style="width: 25px; height: 25px; margin: 5px; margin-top: 2px;"></a></li>
+          <li><a href="/index/"><img class="img-responsive" src="../static/images/heart.png"
+                style="width: 30px; height: 30px; margin: 5px; margin-top: 2px;"></a></li>
+        </ul>
       </div>
       <hr class="mt-2">
     </nav>
   </div>
 </body>
 
-</html> 
-
-
-
+</html>
